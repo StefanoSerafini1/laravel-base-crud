@@ -30,7 +30,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        return view ('classrooms.create');
     }
 
     /**
@@ -40,8 +40,23 @@ class ClassroomController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   //asssegnazione
+        $data = $request->all();
+        // VALIDATION
+        $request->validate([
+            'name' => 'required|unique:classrooms|max:10',
+            'description' => 'required',
+        ]);
+        // SAVE DATA TO DB
+        $classroom = new Classroom();
+        $classroom->name = $data['name'];
+        $classroom->description = $data['description'];
+        $saved = $classroom->save();
+        // REDIRECT
+        if ($saved) {
+            return redirect()->route('classrooms.show' , $classroom->id);
+        }
+
     }
 
     /**
@@ -56,10 +71,6 @@ class ClassroomController extends Controller
         
         return view('classrooms.show', compact('classroom'));
     }
-
-
-
-
 
     /**
      * Show the form for editing the specified resource.
