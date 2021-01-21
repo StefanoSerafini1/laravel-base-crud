@@ -34,7 +34,6 @@
                                 Delete
                             </a>
                         </td>
-                        
                     </tr>
                 @endforeach
             </tbody>

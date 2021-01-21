@@ -10,8 +10,9 @@
               <a class="nav-link" href="{{ route('homepage') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('classrooms.index') }}">Classrooms</a> <!-- questo ci porta sulla route classrooms che utilizza il metodo index -->
-              </li>
+                <a class="nav-link" href="{{ route('classrooms.index') }}">Classrooms</a> <!--route classrooms che utilizza il metodo index -->
+            </li>
+            
           </ul>
         </div>
      </nav>
