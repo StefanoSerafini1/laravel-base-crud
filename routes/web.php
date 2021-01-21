@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// HOMEPAGE
+Route::get('/', 'HomeController@index')->name('homepage');
+
+
+//route classroom crud
+
+Route::resource('classrooms', 'ClassroomController'); //in questo Laravel crea tutti gli endpoint necessari per fare CRUD
